@@ -1,6 +1,6 @@
 import React from "react";
 import BuildControl from "./BuildControl/BuildControl";
-import  classes from './BuildControls.module.css';
+import classes from "./BuildControls.module.css";
 
 const controls = [
   { label: "Salad", type: "salad" },
@@ -9,11 +9,17 @@ const controls = [
   { label: "Cheese", type: "cheese" },
 ];
 
-const BuildControls = () => {
+const BuildControls = ({ onIngredientAdd, onIngredientRemove, disabled }) => {
   return (
     <div className={classes.BuildControls}>
       {controls.map((ctrl) => (
-        <BuildControl label={ctrl.label} key={ctrl.type} />
+        <BuildControl
+          label={ctrl.label}
+          key={ctrl.type}
+          onIngredientAdd={() => onIngredientAdd(ctrl.type)}
+          onIngredientRemove={() => onIngredientRemove(ctrl.type)}
+          disabled={disabled[ctrl.type]}
+        />
       ))}
     </div>
   );
