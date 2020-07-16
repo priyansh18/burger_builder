@@ -103,12 +103,13 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
     return (
-      <div className="container">
+      <div>
         <Modal show={purchasing} modalClosed={this.handlePurchaseCancel}>
           <OrderSummary
             ingredients={ingredients}
             purchaseCanceled={this.handlePurchaseCancel}
             purchaseContinue={this.handlePurchaseContinue}
+            price={totalPrice}
           />
         </Modal>
         <Burger ingredients={ingredients} />
