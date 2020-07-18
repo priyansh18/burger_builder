@@ -1,14 +1,15 @@
 import React from "react";
 import classes from "./ToolBar.module.css";
 import Logo from "./../../Logo/Logo";
-import NavigationItems from './../NavigationItems/NavigationItems';
+import NavigationItems from "./../NavigationItems/NavigationItems";
+import DrawerToggle from "./../SideDrawer/DrawerToggle/DrawerToggle";
 
-const ToolBar = () => {
+const ToolBar = ({ handleToggle }) => {
   return (
     <header className={classes.ToolBar}>
-      <div>MENU</div>
+      <DrawerToggle clicked={handleToggle} />
       <Logo height="80%" />
-      <NavigationItems/>
+      <NavigationItems />
     </header>
   );
 };
