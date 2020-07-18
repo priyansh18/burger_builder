@@ -8,7 +8,7 @@ const SideDrawer = ({ closed, show }) => {
   // console.log("Open", show);
   // console.log("Closed", closed);
   let attachedClasses = [classes.SideDrawer, classes.Close];
-  console.log(attachedClasses);
+  // console.log(attachedClasses);
   if (show) {
     attachedClasses = [classes.SideDrawer, classes.Open];
   }
