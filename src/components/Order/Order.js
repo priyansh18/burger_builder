@@ -1,9 +1,12 @@
-import React from 'react';
+import React from "react";
+import classes from "./Order.module.css";
 
 const Order = () => {
-  return (<div>
-    <p>Ingredients L</p>
-  </div>  );
-}
- 
+  return (
+    <div className={classes.Order}>
+      <p>Ingredients:Salad(1)</p>
+    </div>
+  );
+};
+
 export default Order;
