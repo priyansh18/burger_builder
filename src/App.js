@@ -12,6 +12,7 @@ function App() {
       <Layout>
         <Switch>
           <Route path="/orders" component={Orders} />
+          <Route path="/checkout" component={Checkout} />
           <Route path="/" component={BurgerBuilder} />
         </Switch>
       </Layout>

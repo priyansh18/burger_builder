@@ -23,7 +23,6 @@ class ContactData extends Component {
     });
     const order = {
       ingredients: this.props.ingredients,
-      price: this.props.totalPrice,
       customer: {
         name: "Priyansh Singhal",
         address: {
@@ -34,6 +33,7 @@ class ContactData extends Component {
         email: "priyansh@gmail.com",
       },
       deliveryMethod: "fastest",
+      price: this.props.price,
     };
     axios
       .post("/orders.json", order)
@@ -50,13 +50,14 @@ class ContactData extends Component {
       });
   };
   render() {
+    console.log(this.props.price)
     let form = (
       <form>
-        <input classname={classes.Input} type="text" name="name" placeholder="Your Name " />
-        <input classname={classes.Input} type="email" name="email" placeholder="Your Email " />
-        <input classname={classes.Input} type="text" name="street" placeholder="Street " />
-        <input classname={classes.Input} type="text" name="postal" placeholder="Postal Code " />
-        <input classname={classes.Input} type="text" name="country" placeholder="Country " />
+        <input className={classes.Input} type="text" name="name" placeholder="Your Name " />
+        <input className={classes.Input} type="email" name="email" placeholder="Your Email " />
+        <input className={classes.Input} type="text" name="street" placeholder="Street " />
+        <input className={classes.Input} type="text" name="postal" placeholder="Postal Code " />
+        <input className={classes.Input} type="text" name="country" placeholder="Country " />
         <Button btnType="Success" clicked={this.orderHandler}>
           ORDER
         </Button>
