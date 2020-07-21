@@ -15,6 +15,10 @@ class ContactData extends Component {
           placeholder: "Street",
         },
         value: "",
+        validation: {
+          required: true,
+        },
+        valid: false,
       },
       street: {
         elementType: "input",
@@ -23,6 +27,10 @@ class ContactData extends Component {
           placeholder: "Your Name",
         },
         value: "",
+        validation: {
+          required: true,
+        },
+        valid: false,
       },
       zipcode: {
         elementType: "input",
@@ -31,6 +39,12 @@ class ContactData extends Component {
           placeholder: "ZIP Code",
         },
         value: "",
+        validation: {
+          required: true,
+          minLength: 5,
+          maxLength: 6,
+        },
+        valid: false,
       },
       country: {
         elementType: "input",
@@ -39,6 +53,10 @@ class ContactData extends Component {
           placeholder: "Country",
         },
         value: "",
+        validation: {
+          required: true,
+        },
+        valid: false,
       },
       email: {
         elementType: "input",
@@ -47,6 +65,10 @@ class ContactData extends Component {
           placeholder: "Your E-Mail",
         },
         value: "",
+        validation: {
+          required: true,
+        },
+        valid: false,
       },
       deliveryMethod: {
         elementType: "select",
@@ -61,6 +83,24 @@ class ContactData extends Component {
     },
     loading: false,
   };
+
+  checkValidation(value, rules) {
+    let isValid = true;
+
+    if (rules.required) {
+      isValid = value.trim() !== "" && isValid;
+    }
+
+    if (rules.minLength) {
+      isValid = value.length >= rules.minLength && isValid;
+    }
+
+    if (rules.maxLength) {
+      isValid = value.length <= rules.maxLength && isValid;
+    }
+
+    return isValid;
+  }
 
   orderHandler = (event) => {
     event.preventDefault();
@@ -100,6 +140,7 @@ class ContactData extends Component {
       ...updatedOrderForm[inputIdentifier],
     };
     updatedFormElement.value = event.target.value;
+    updatedFormElement.valid = this.checkValidation(updatedFormElement.value, updatedFormElement.validation);
     updatedOrderForm[inputIdentifier] = updatedFormElement;
     this.setState({
       orderForm: updatedOrderForm,
@@ -127,7 +168,9 @@ class ContactData extends Component {
             changed={(event) => this.handleInputChange(event, formElement.id)}
           />
         ))}
-        <Button clicked={this.orderHandler} btnType="Success">ORDER</Button>
+        <Button clicked={this.orderHandler} btnType="Success">
+          ORDER
+        </Button>
       </form>
     );
     if (this.state.loading) {
