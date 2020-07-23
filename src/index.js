@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
-import {createStore} from 'redux'
+import { createStore } from "redux";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-import reducer from './store/reducer'
+import burgerBuilderReducer from "./store/reducers/burgerBuilder.js";
 
-const store  = createStore(reducer)
+
+const store = createStore(burgerBuilderReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <Provider store={store}>
