@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { createStore,applyMiddleware,compose } from "redux";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-import burgerBuilderReducer from "./store/reducers/burgerBuilder.js";
+import burgerBuilderReducer from "./store/reducers/ingredient.js";
 import thunk from 'redux-thunk'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
