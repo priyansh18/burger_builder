@@ -32,10 +32,10 @@ export const initIngredients = () => {
     axios
       .get("https://burger-builder-5a5c5.firebaseio.com/ingredients.json")
       .then((response) => {
-        dispatch(setIngredients(response.data))
+        dispatch(setIngredients(response.data));
       })
       .catch((error) => {
-        dispatch(fetchIngredientsFailed())
+        dispatch(fetchIngredientsFailed());
       });
   };
 };
