@@ -7,17 +7,17 @@ import axios from "../../axios-orders";
 import Spinner from "./../../components/UI/Spinner/Spinner";
 import ErrorHandler from "./../../hoc/ErrorHandler/ErrorHandler";
 import { connect } from "react-redux";
-import { addIngredient, removeIngredient } from "./../../store/actions/index";
+import { addIngredient, removeIngredient,initIngredients } from "./../../store/actions/index";
 
 class BurgerBuilder extends Component {
   state = {
     purchasing: false,
     loading: false,
-    error: null,
   };
 
   componentDidMount() {
     console.log(this.props);
+    this.props.onInitIngredients();
   }
 
   updatePurchaseState(ingredients) {
@@ -49,8 +49,8 @@ class BurgerBuilder extends Component {
   };
 
   render() {
-    const { purchasing, error } = this.state;
-    const { ings, onIngredientAdded, onIngredientRemoved, price } = this.props;
+    const { purchasing } = this.state;
+    const { ings, onIngredientAdded, onIngredientRemoved, price, error } = this.props;
     const disabledInfo = {
       ...ings,
     };
@@ -100,6 +100,7 @@ const mapStateToProps = (state) => {
   return {
     ings: state.ingredients,
     price: state.totalPrice,
+    error: state.error,
   };
 };
 
@@ -107,6 +108,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onIngredientAdded: (ingName) => dispatch(addIngredient(ingName)),
     onIngredientRemoved: (ingName) => dispatch(removeIngredient(ingName)),
+    onInitIngredients: () => dispatch(initIngredients()),
   };
 };
 

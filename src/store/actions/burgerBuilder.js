@@ -32,10 +32,10 @@ export const initIngredients = () => {
     axios
       .get("REDACTED_DB_URLingredients.json")
       .then((response) => {
-        dispatch(setIngredients(response.data))
+        dispatch(setIngredients(response.data));
       })
       .catch((error) => {
-        dispatch(fetchIngredientsFailed())
+        dispatch(fetchIngredientsFailed());
       });
   };
 };
