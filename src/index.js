@@ -12,14 +12,14 @@ import thunk from "redux-thunk";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-console.log('Order',orderReducer)
+// console.log('Order',orderReducer)
 const rootReducer = combineReducers({
   ingredient: ingredientReducer,
   order: orderReducer,
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
-console.log(store)
+// console.log(store)
 
 ReactDOM.render(
   <Provider store={store}>
