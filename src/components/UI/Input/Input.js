@@ -4,8 +4,8 @@ import classes from "./Input.module.css";
 const Input = (props) => {
   let inputElement = null;
   const inputClasses = [classes.InputElement];
-  console.log("Touched",props.touched)
-  console.log("Touched",props.touched)
+  // console.log("Touched",props.touched)
+  // console.log("Touched",props.touched)
 
   if (props.invalid && props.shouldValidate&& props.touched) {
     inputClasses.push(classes.Invalid);

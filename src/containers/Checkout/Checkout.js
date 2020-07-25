@@ -13,11 +13,13 @@ class Checkout extends Component {
     this.props.history.replace("/checkout/contactdata");
   };
   render() {
-    const { ings } = this.props;
+    const { ings, purchased } = this.props;
     let summary = <Redirect to="/" />;
     if (ings) {
+      const purchasedRedirect = purchased ? <Redirect to="/" /> : null;
       summary = (
         <div>
+          {purchasedRedirect}
           <CheckoutSummary
             ingredients={ings}
             checkoutCancelled={this.checkoutCancelled}
@@ -34,6 +36,7 @@ class Checkout extends Component {
 const mapStateToProps = (state) => {
   return {
     ings: state.ingredient.ingredients,
+    purchased: state.order.purchased,
   };
 };
 
