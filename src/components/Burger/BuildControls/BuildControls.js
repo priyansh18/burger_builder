@@ -9,7 +9,7 @@ const controls = [
   { label: "Cheese", type: "cheese" },
 ];
 
-const BuildControls = ({ onIngredientAdd, onIngredientRemove, disabled, price,purchasable,ordered }) => {
+const BuildControls = ({ onIngredientAdd, onIngredientRemove, disabled, price,purchasable,ordered ,isAuth}) => {
   return (
     <div className={classes.BuildControls}>
       <p>
@@ -27,7 +27,7 @@ const BuildControls = ({ onIngredientAdd, onIngredientRemove, disabled, price,pu
           disabled={disabled[ctrl.type]}
         />
       ))}
-      <button className={classes.OrderButton} disabled={!purchasable} onClick={ordered}>Order Now</button>
+      <button className={classes.OrderButton} disabled={!purchasable} onClick={ordered}>{isAuth?'Order Now':'SIGNUP TO ORDER'}</button>
     </div>
   );
 };
