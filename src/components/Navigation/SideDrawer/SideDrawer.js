@@ -4,7 +4,7 @@ import Logo from "./../../Logo/Logo";
 import classes from "./SideDrawer.module.css";
 import BackDrop from "./../../UI/BackDrop/BackDrop";
 
-const SideDrawer = ({ closed, show }) => {
+const SideDrawer = ({ closed, show,isAuth }) => {
   // console.log("Open", show);
   // console.log("Closed", closed);
   let attachedClasses = [classes.SideDrawer, classes.Close];
@@ -18,7 +18,7 @@ const SideDrawer = ({ closed, show }) => {
       <div className={attachedClasses.join(" ")}>
         <Logo height="11%" />
         <nav>
-          <NavigationItems />
+          <NavigationItems isAuthenticated={isAuth} />
         </nav>
       </div>
     </div>
