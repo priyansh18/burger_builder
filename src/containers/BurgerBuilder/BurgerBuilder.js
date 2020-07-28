@@ -7,7 +7,13 @@ import axios from "../../axios-orders";
 import Spinner from "./../../components/UI/Spinner/Spinner";
 import ErrorHandler from "./../../hoc/ErrorHandler/ErrorHandler";
 import { connect } from "react-redux";
-import { addIngredient, removeIngredient, initIngredients, purchaseInit,setAuthRedirectPath } from "./../../store/actions/index";
+import {
+  addIngredient,
+  removeIngredient,
+  initIngredients,
+  purchaseInit,
+  setAuthRedirectPath,
+} from "./../../store/actions/index";
 
 class BurgerBuilder extends Component {
   state = {
@@ -16,7 +22,7 @@ class BurgerBuilder extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
+    // console.log(this.props);
     this.props.onInitIngredients();
   }
 
@@ -33,14 +39,13 @@ class BurgerBuilder extends Component {
   }
 
   handlePurchase = () => {
-    if(this.props.isAuthenticated){
-
+    if (this.props.isAuthenticated) {
       this.setState({
         purchasing: true,
       });
-    }else{
-      this.props.onSetAuthRedirectPath("/checkout")
-      this.props.history.push('/auth')
+    } else {
+      this.props.onSetAuthRedirectPath("/checkout");
+      this.props.history.push("/auth");
     }
   };
 
@@ -110,7 +115,6 @@ const mapStateToProps = (state) => {
     price: state.ingredient.totalPrice,
     error: state.order.error,
     isAuthenticated: state.auth.token !== null,
-   
   };
 };
 
@@ -120,7 +124,7 @@ const mapDispatchToProps = (dispatch) => {
     onIngredientRemoved: (ingName) => dispatch(removeIngredient(ingName)),
     onInitIngredients: () => dispatch(initIngredients()),
     onInitPurchase: () => dispatch(purchaseInit()),
-    onSetAuthRedirectPath:(path)=>dispatch(setAuthRedirectPath(path))
+    onSetAuthRedirectPath: (path) => dispatch(setAuthRedirectPath(path)),
   };
 };
 
