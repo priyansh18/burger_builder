@@ -3,6 +3,7 @@ check it out : https://burger-builder-5a5c5.web.app/
 Peek : 
 
 
+![](https://github.com/priyansh18/burger_builder/blob/master/src/image/peek.png)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
