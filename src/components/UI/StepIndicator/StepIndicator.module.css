@@ -1,0 +1,85 @@
+.StepIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px 20px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.Step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.Circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: var(--color-border-light);
+  color: var(--color-text-muted);
+  border: 2px solid var(--color-border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+}
+
+.Active .Circle {
+  background: linear-gradient(135deg, var(--color-accent), #D97706);
+  color: white;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(232, 144, 30, 0.2), 0 4px 12px rgba(232, 144, 30, 0.3);
+  transform: scale(1.1);
+}
+
+.Active .Label {
+  color: var(--color-accent-dark);
+  font-weight: 700;
+}
+
+.Completed .Circle {
+  background: linear-gradient(135deg, var(--color-success), #059669);
+  color: white;
+  border-color: var(--color-success);
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.25);
+}
+
+.Completed .Label {
+  color: var(--color-success);
+}
+
+.Line {
+  flex: 1;
+  height: 3px;
+  min-width: 40px;
+  background: var(--color-border);
+  margin: 0 8px;
+  margin-bottom: 24px;
+  border-radius: 2px;
+  transition: background 0.4s ease;
+}
+
+.LineCompleted {
+  background: linear-gradient(90deg, var(--color-success), #34D399);
+}
+
+@media (max-width: 480px) {
+  .Label { font-size: 0.6rem; }
+  .Circle { width: 30px; height: 30px; font-size: 0.7rem; }
+  .Line { min-width: 24px; }
+}
