@@ -30,5 +30,4 @@ yarn-error.log*
 # Unused assets
 src/image/
 
-# Lock file (using yarn.lock)
-package-lock.json
+.vercel
