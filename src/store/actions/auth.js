@@ -41,10 +41,10 @@ export const auth = (email, password, isSignup) => {
   return (dispatch) => {
     dispatch(authStart());
     const authData = { email: email, password: password, returnSecureToken: true };
-    let url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=REDACTED_API_KEY";
+    const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
+    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
     if (!isSignup) {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=REDACTED_API_KEY";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
     }
     axios
       .post(url, authData)

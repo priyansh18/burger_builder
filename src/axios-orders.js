@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "REDACTED_DB_URL",
+  baseURL: process.env.REACT_APP_FIREBASE_DB_URL,
 });
 
 export default instance;
