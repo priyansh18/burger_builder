@@ -1,76 +1,94 @@
-check it out : https://burger-builder-5a5c5.web.app/
+# Burger Builder
 
-Peek : 
+A full-featured burger customization and ordering app built with React, Redux, and Firebase.
 
+**Live:** [https://burgerbuilder-priyanshsinghal.vercel.app](https://burgerbuilder-priyanshsinghal.vercel.app)
 
-![](https://github.com/priyansh18/burger_builder/blob/master/src/image/peek.png)
+---
 
+## Screenshots
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Build Your Burger
+![Home Page](screenshots/01-home.png)
 
-## Available Scripts
+### Customize Ingredients
+![Burger Built](screenshots/02-burger-built.png)
 
-In the project directory, you can run:
+### Order Summary
+![Order Summary](screenshots/05-order-summary.png)
 
-### `yarn start`
+### Multi-Step Checkout
+![Checkout Review](screenshots/06-checkout-review.png)
 
-Runs the app in the development mode.<br />
+### Delivery Details
+![Contact Form](screenshots/07-contact-form.png)
+
+### Authentication
+![Auth Page](screenshots/03-auth.png)
+
+---
+
+## Features
+
+- **Build Your Burger** — Add or remove ingredients (salad, cheese, onion, tomato) with real-time price updates
+- **User Authentication** — Sign up and sign in with email/password via Firebase Auth
+- **Multi-Step Checkout** — 4-step flow with progress indicator: Review, Details, Payment, Confirmation
+- **Mock Payment Gateway** — Credit/Debit Card (with live card preview), UPI, and Cash on Delivery options
+- **Order Success** — Animated confirmation page with order tracking timeline
+- **Order History** — View all past orders with ingredient breakdown and pricing
+- **Responsive Design** — Works on desktop and mobile with side drawer navigation
+
+## Tech Stack
+
+- **Frontend:** React 16, React Router 5, Redux + Redux Thunk
+- **Backend:** Firebase Realtime Database, Firebase Authentication
+- **Styling:** CSS Modules with custom design system (Inter + Playfair Display fonts)
+- **Deployment:** Vercel (auto-deploy from GitHub)
+
+## Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/priyansh18/burger_builder.git
+cd burger_builder
+
+# Install dependencies
+npm install
+
+# Create a .env file with your Firebase config
+echo "REACT_APP_FIREBASE_API_KEY=your_api_key" > .env
+echo "REACT_APP_FIREBASE_DB_URL=https://your-project.firebaseio.com" >> .env
+
+# Start development server
+npm start
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Scripts
 
-### `yarn test`
+| Command | Description |
+|---------|-------------|
+| `npm start` | Run development server |
+| `npm run build` | Create production build |
+| `npm test` | Run tests |
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+src/
+  components/       # Reusable UI components
+    Burger/          # Burger display and controls
+    Navigation/      # Toolbar, side drawer, nav items
+    Order/           # Order cards and checkout summary
+    OrderSuccess/    # Animated success page
+    Payment/         # Mock payment gateway
+    UI/              # Modal, buttons, inputs, spinner, step indicator
+  containers/        # Page-level components with Redux
+    Auth/            # Sign in / Sign up
+    BurgerBuilder/   # Main burger building page
+    Checkout/        # Multi-step checkout flow
+    Orders/          # Order history
+  hoc/               # Higher-order components (Layout, ErrorHandler)
+  store/             # Redux actions and reducers
+```
