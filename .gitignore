@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Firebase
+.firebase/
+.firebaserc
+
+# Unused assets
+src/image/
+
+# Lock file (using yarn.lock)
+package-lock.json
