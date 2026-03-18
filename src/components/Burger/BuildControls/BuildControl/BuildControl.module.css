@@ -2,56 +2,83 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 5px 0;
+  margin: 3px 0;
+  width: 100%;
+  padding: 6px 4px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+
+.BuildControl:hover {
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .BuildControl button {
-  display: block;
-  font: inherit;
-  padding: 5px;
-  margin: 0 5px;
-  width: 80px;
-  border: 1px solid #AA6817;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  padding: 10px 0;
+  margin: 0 6px;
+  width: 72px;
+  border: none;
   cursor: pointer;
   outline: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
 }
 
+.BuildControl button:active:not(:disabled) {
+  transform: scale(0.92);
+}
 
 .BuildControl button:disabled {
-  background-color: #AC9980;
-  border: 1px solid #7E7365;
-  color: #ccc;
-  cursor: default;
+  background-color: var(--color-border-light);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
 }
 
 .BuildControl button:hover:disabled {
-  background-color: #AC9980;
-  color: #ccc;
+  background-color: var(--color-border-light);
+  color: var(--color-text-muted);
   cursor: not-allowed;
 }
 
 .Label {
-  padding: 10px;
-  font-weight: bold;
-  width: 80px;
+  padding: 8px 12px;
+  font-weight: 700;
+  width: 90px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
 }
 
-.BuildControl .Less {  
-  background-color: #D39952;
-  color: white;
+.BuildControl .Less {
+  background: #FEF3E2;
+  color: var(--color-accent-dark);
+  border: 1.5px solid rgba(245, 158, 11, 0.15);
 }
 
 .BuildControl .More {
-  background-color: #8F5E1E;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2A1810 100%);
   color: white;
+  border: 1.5px solid transparent;
 }
 
-.BuildControl .Less:hover, .BuildControl .Less:active {  
-  background-color: #DAA972;
-  color: white;
+.BuildControl .Less:hover:not(:disabled),
+.BuildControl .Less:active:not(:disabled) {
+  background: #FDE9C8;
+  color: #92400E;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
 }
 
-.BuildControl .More:hover,.BuildControl .More:active {
-  background-color: #99703F;
-  color: white;
+.BuildControl .More:hover:not(:disabled),
+.BuildControl .More:active:not(:disabled) {
+  background: linear-gradient(135deg, #2A1810 0%, #3D2317 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }

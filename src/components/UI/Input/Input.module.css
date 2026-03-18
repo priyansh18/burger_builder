@@ -1,32 +1,62 @@
-.Input{
+.Input {
   width: 100%;
-  padding: 10px;
+  padding: 6px 0;
   box-sizing: border-box;
+  text-align: left;
 }
 
-.Label{
-  font-weight: bold;
+.Label {
+  font-weight: 700;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.InputElement{
-  outline:none;
-  border: 1px solid #ccc;
-  background-color: white;
-  font:inherit;
-  padding: 6px 10px;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.InputElement:focus{
+.InputElement {
   outline: none;
-  background-color: #ccc;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-surface);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  padding: 13px 16px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+  color: var(--color-text);
 }
 
-.Invalid{
-  border: 1px solid red;
-  background-color: salmon;
+.InputElement::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.InputElement:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+}
+
+.Invalid {
+  border-color: var(--color-danger);
+  background-color: #FEF2F2;
+}
+
+.Invalid:focus {
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+  border-color: var(--color-danger);
+}
+
+select.InputElement {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23A8A29E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
 }

@@ -15,7 +15,23 @@ const Orders = ({ token, userId, orders, loading, onFetchOrders }) => {
   if (!loading) {
     all_orders = orders.map((order) => <Order key={order.id} ingredients={order.ingredients} price={order.price} />);
   }
-  return <div>{all_orders}</div>;
+  return (
+    <div style={{ maxWidth: '760px', margin: '0 auto', padding: '32px 20px' }}>
+      <h1 style={{
+        fontFamily: "'Playfair Display', Georgia, serif",
+        fontSize: '1.8rem',
+        fontWeight: 700,
+        color: '#1C1917',
+        marginBottom: '4px'
+      }}>Your Orders</h1>
+      <p style={{
+        color: '#78716C',
+        fontSize: '0.9rem',
+        marginBottom: '24px'
+      }}>Track all your previous orders</p>
+      {all_orders}
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {

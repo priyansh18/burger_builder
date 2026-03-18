@@ -51,24 +51,19 @@ class Auth extends Component {
 
   checkValidation(value, rules) {
     let isValid = true;
-
     if (rules.required) {
       isValid = value.trim() !== "" && isValid;
     }
-
     if (rules.minLength) {
       isValid = value.length >= rules.minLength && isValid;
     }
-
     if (rules.maxLength) {
       isValid = value.length <= rules.maxLength && isValid;
     }
-
     return isValid;
   }
 
   inputChangedHandler = (event, controlName) => {
-    // console.log(event.target.value);
     const updatedControls = {
       ...this.state.controls,
       [controlName]: {
@@ -83,8 +78,6 @@ class Auth extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-    // console.log("Email",this.state.controls.email.value);
-    // console.log("Password",this.state.controls.password.value);
     this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
   };
 
@@ -133,13 +126,26 @@ class Auth extends Component {
     return (
       <div className={classes.Auth}>
         {authRedirect}
+        <h2 style={{
+          fontFamily: "'Playfair Display', Georgia, serif",
+          fontSize: '1.6rem',
+          marginBottom: '6px',
+          color: '#1C1917'
+        }}>{this.state.isSignup ? "Create Account" : "Welcome Back"}</h2>
+        <p style={{
+          color: '#78716C',
+          fontSize: '0.9rem',
+          marginBottom: '28px'
+        }}>{this.state.isSignup ? "Sign up to start ordering" : "Sign in to your account"}</p>
         {errorMessage}
         <form onSubmit={this.submitHandler}>
           {form}
-          <Button btnType="Success">SUBMIT</Button>
+          <Button btnType="Success">
+            {this.state.isSignup ? "Sign Up" : "Sign In"}
+          </Button>
         </form>
         <Button clicked={this.switchAuthModeHandler} btnType="Danger">
-          SWITCH TO {this.state.isSignup ? "SIGNIN" : "SIGNUP"}
+          {this.state.isSignup ? "Already have an account? Sign In" : "Need an account? Sign Up"}
         </Button>
       </div>
     );

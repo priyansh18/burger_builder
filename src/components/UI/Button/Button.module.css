@@ -1,29 +1,52 @@
 .Button {
   background-color: transparent;
   border: none;
-  color: white;
   outline: none;
   cursor: pointer;
-  font: inherit;
-  padding: 10px;
-  margin: 10px;
-  font-weight: bold;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 11px 22px;
+  margin: 8px;
+  border-radius: var(--radius-xl);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+}
+
+.Button:active {
+  transform: scale(0.96);
 }
 
 .Button:first-of-type {
   margin-left: 0;
-  padding-left: 0;
 }
 
 .Success {
-  color: #5c9210;
+  color: white;
+  background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%);
+  box-shadow: 0 3px 12px rgba(22, 163, 74, 0.25);
+}
+
+.Success:hover {
+  box-shadow: 0 5px 18px rgba(22, 163, 74, 0.35);
+  transform: translateY(-1px);
 }
 
 .Danger {
-  color: #944317;
+  color: var(--color-text-secondary);
+  background: var(--color-border-light);
+}
+
+.Danger:hover {
+  background: var(--color-border);
+  color: var(--color-text);
 }
 
 .Button:disabled {
-  color: #ccc;
+  color: var(--color-text-muted);
+  background: var(--color-border-light);
   cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }

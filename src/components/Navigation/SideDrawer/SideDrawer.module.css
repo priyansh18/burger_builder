@@ -1,28 +1,28 @@
-.SideDrawer{
+.SideDrawer {
   position: fixed;
-  width: 200px;
-  max-width: 70%;
+  width: 280px;
+  max-width: 75%;
   height: 100%;
-  left:0;
-  top:0;
+  left: 0;
+  top: 0;
   z-index: 200;
-  background-color: aliceblue;
-  padding: 32px 16px;
+  background-color: var(--color-surface);
+  padding: 32px 20px;
   box-sizing: border-box;
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-xl);
 }
 
-@media(min-width:500px){
-  .SideDrawer{
+@media (min-width: 500px) {
+  .SideDrawer {
     display: none;
   }
 }
 
-.Open{
+.Open {
   transform: translateX(0);
-
 }
 
-.Close{
+.Close {
   transform: translateX(-100%);
 }

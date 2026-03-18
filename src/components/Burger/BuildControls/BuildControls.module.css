@@ -1,52 +1,104 @@
 .BuildControls {
   width: 100%;
-  background-color: #cf8f2e;
+  max-width: 480px;
+  background: var(--color-surface);
   display: flex;
   flex-flow: column;
   align-items: center;
-  box-shadow: 0 2px 1px #ccc;
-  margin: auto;
-  padding: 10px 0;
+  margin: 0 auto;
+  padding: 32px 28px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.08);
+  position: relative;
+  border-top: 3px solid var(--color-accent);
+}
+
+.BuildControls p {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.BuildControls p span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  text-transform: none;
+  letter-spacing: -0.02em;
+  margin-top: 2px;
 }
 
 .OrderButton {
-  background-color: #dad735;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #D97706 50%, #B45309 100%);
   outline: none;
   cursor: pointer;
-  border: 1px solid #966909;
-  color: #966909;
-  font-family: inherit;
-  font-size: 1.2em;
-  padding: 15px 30px;
-  box-shadow: 2px 2px 2px #966909;
+  border: none;
+  color: white;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 16px 48px;
+  border-radius: var(--radius-xl);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.OrderButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.OrderButton:hover::before {
+  left: 100%;
 }
 
 .OrderButton:hover,
 .OrderButton:active {
-  background-color: #a0db41;
-  border: 1px solid #966909;
-  color: #966909;
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.55);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .OrderButton:disabled {
-  background-color: #c7c6c6;
+  background: var(--color-border);
   cursor: not-allowed;
-  border: 1px solid #ccc;
-  color: #888888;
+  color: var(--color-text-muted);
+  box-shadow: none;
+  transform: none;
+}
+
+.OrderButton:disabled::before {
+  display: none;
 }
 
 .OrderButton:not(:disabled) {
-  animation: enable 0.3s linear;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes enable {
-  0% {
-    transform: scale(1);
-  }
-  60% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.06); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (min-width: 600px) {
+  .BuildControls {
+    max-width: 500px;
+    padding: 36px 36px;
   }
 }

@@ -1,18 +1,20 @@
-.ToolBar{
-  height: 56px;
+.ToolBar {
+  height: 64px;
   width: 100%;
   position: fixed;
-  top:0;
-  left:0;
-  background-color: #703B09;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #0D0705 0%, #1A0F0A 40%, #2A1810 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 28px;
   box-sizing: border-box;
   z-index: 90;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.ToolBar nav{
+.ToolBar nav {
   height: 100%;
 }

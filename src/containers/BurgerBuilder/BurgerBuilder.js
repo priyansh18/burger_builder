@@ -30,7 +30,6 @@ const BurgerBuilder = ({
   const [purchasing, setPurchasing] = useState(false);
 
   useEffect(() => {
-    // console.log(props);
     onInitIngredients();
   }, [onInitIngredients]);
 
@@ -42,7 +41,6 @@ const BurgerBuilder = ({
       .reduce((sum, el) => {
         return sum + el;
       }, 0);
-    // console.log("Sum", sum);
     return sum > 0;
   };
 
@@ -71,21 +69,70 @@ const BurgerBuilder = ({
     disabledInfo[key] = disabledInfo[key] <= 0;
   }
   let orderSummary = null;
-  let burger = error ? <p>Ingredients can't be loaded</p> : <Spinner />;
+  let burger = error ? (
+    <p style={{
+      textAlign: 'center',
+      padding: '60px 20px',
+      color: '#DC2626',
+      fontSize: '0.95rem'
+    }}>Unable to load ingredients. Please try again.</p>
+  ) : <Spinner />;
 
   if (ings) {
     burger = (
       <div>
-        <Burger ingredients={ings} />
-        <BuildControls
-          onIngredientAdd={onIngredientAdded}
-          onIngredientRemove={onIngredientRemoved}
-          disabled={disabledInfo}
-          price={price}
-          purchasable={updatePurchaseState(ings)}
-          isAuth={isAuthenticated}
-          ordered={handlePurchase}
-        />
+        <div style={{
+          background: 'linear-gradient(165deg, #0D0705 0%, #1A0F0A 30%, #2A1810 60%, #1A0F0A 100%)',
+          padding: '48px 20px 32px',
+          textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden',
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.08) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }} />
+          <h1 style={{
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontSize: '2.4rem',
+            fontWeight: 700,
+            color: '#FFFFFF',
+            marginBottom: '8px',
+            position: 'relative',
+            letterSpacing: '-0.02em',
+          }}>Build Your Burger</h1>
+          <p style={{
+            color: 'rgba(255,255,255,0.45)',
+            fontSize: '0.9rem',
+            position: 'relative',
+            letterSpacing: '0.04em',
+            textTransform: 'uppercase',
+            fontWeight: 600,
+          }}>Craft your masterpiece with premium ingredients</p>
+        </div>
+        <div style={{
+          background: 'linear-gradient(180deg, #0D0705 0%, var(--color-bg) 20%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          paddingTop: '8px',
+        }}>
+          <Burger ingredients={ings} />
+          <BuildControls
+            onIngredientAdd={onIngredientAdded}
+            onIngredientRemove={onIngredientRemoved}
+            disabled={disabledInfo}
+            price={price}
+            purchasable={updatePurchaseState(ings)}
+            isAuth={isAuthenticated}
+            ordered={handlePurchase}
+          />
+        </div>
       </div>
     );
     orderSummary = (

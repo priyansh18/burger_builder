@@ -1,25 +1,48 @@
 .Auth {
-  margin: 20px auto;
-  width: 80%;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 420px;
   text-align: center;
-  box-shadow: 0 2px 3px #ccc;
-  border: 1px solid #eee;
-  padding: 10px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: 44px 36px;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.4s ease;
 }
 
-.Input {
-  display: block;
-  height: 25px;
-  border-radius: 4px;
-  width: 80%;
-  margin: auto;
-  margin-bottom: 10px;
-  padding: 5px;
+.Auth::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), #D97706, var(--color-accent));
+}
+
+.Auth h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.Auth form {
+  margin-top: 4px;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (min-width: 600px) {
   .Auth {
-      width: 500px;
+    width: 420px;
   }
 }

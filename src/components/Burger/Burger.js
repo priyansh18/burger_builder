@@ -3,18 +3,25 @@ import classes from "./Burger.module.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
 const Burger = ({ ingredients }) => {
-  // console.log(ingredients);
-  // object.keys converts object received from BurgerBuilder components into array
   let transformedIngredients = Object.keys(ingredients).map((ingredientKey) => {
     return [...Array(ingredients[ingredientKey])].map((_, index) => {
       return <BurgerIngredient key={ingredientKey + index} type={ingredientKey} />;
     });
-  }).reduce((arr,el)=>{
-    return arr.concat(el)
-  },[]);
-  // console.log(transformedIngredients);
-  if(transformedIngredients.length===0){
-    transformedIngredients = <p>Please start adding Ingredients!</p>
+  }).reduce((arr, el) => {
+    return arr.concat(el);
+  }, []);
+
+  if (transformedIngredients.length === 0) {
+    transformedIngredients = (
+      <p style={{
+        color: '#A8A29E',
+        fontStyle: 'italic',
+        fontSize: '0.95rem',
+        padding: '20px 0'
+      }}>
+        Start adding ingredients to build your burger
+      </p>
+    );
   }
   return (
     <div className={classes.Burger}>
