@@ -2,7 +2,7 @@
 
 A full-featured burger customization and ordering app built with React, Redux, and Firebase.
 
-**Live:** [https://burgerbuilder-priyanshsinghal.vercel.app](https://burgerbuilder-priyanshsinghal.vercel.app)
+**Live:** [https://burgerbuilder.priyanshsinghal.com](https://burgerbuilder.priyanshsinghal.com)
 
 ---
 
